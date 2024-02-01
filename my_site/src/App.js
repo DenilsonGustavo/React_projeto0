@@ -1,29 +1,23 @@
 import logo from './logo.svg';
 import './App.css';
-import HelloWorld from "./components/HelloWorld";
-import Frase from "./components/Frase"
-import SayMyName from "./components/SayMyName";
-import Pessoa from "./components/Pessoa";
-import List from "./components/List";
-import Evento from "./components/Evento";
-import Form from "./components/Form";
-import Condicional from "./components/Condicional";
-import OutraLista from "./components/OutraLista";
-import {useState} from "react";
-import SeuNome from "./components/SeuNome";
-import Saudacao from "./components/Saudacao";
-
+import {BrowserRouter as Router, Routes, Route, Link} from "react-router-dom";
+import Home from "./pages/Home";
+import Empresa from "./pages/Empresa";
+import Contato from "./pages/Contato";
+import Navbar from "./components/layout/Navbar";
+import Footer from "./components/layout/Footer";
 function App() {
-
-    const meusItens = ['React', 'Vue', 'Angular']
-    const [nome, setNome] = useState()
     return (
-    <div className="App">
-      <h1>State Lif</h1>
-        <SeuNome setNome={setNome}/>
-        <Saudacao nome = {nome}/>
-    </div>
+        <Router>
+            <Navbar/>
+            <Routes>
+                <Route path="/" element={<Home/>}/>
+                <Route path="/empresa" element={<Empresa/>}/>
+                <Route path="/contato" element={<Contato/>}/>
+            </Routes>
+            <Footer/>
+        </Router>
+
   );
 }
-
 export default App;
