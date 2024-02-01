@@ -1,30 +1,17 @@
-import React, { useState } from 'react';
-
-function Evento({ numero }) {
-  const [showMessage, setShowMessage] = useState(false);
-
-  function meuEvento() {
-    setShowMessage(true);
-    console.log(`Opa, fui ativado! ${numero}`);
-  }
-
-  function hideMessage() {
-    setShowMessage(false);
-  }
-
-  return (
-    <div>
-      <p>Clique para disparar um evento</p>
-      <button onClick={meuEvento}>Ativar</button>
-
-      {showMessage && (
+import Button from "./eventos/Button";
+function Evento(numero){
+    function meuEvento(){
+        console.log("Ativando o primeiro evento")
+    }
+    function segundoEvento(){
+        console.log("Ativando o segundo evento")
+    }
+    return(
         <div>
-          <p>Número: {numero}</p>
-          <button onClick={hideMessage}>OK</button>
+            <p>Clique para disparar um evento</p>
+            <Button event={meuEvento} text="Primeiro Evento"/>
+            <Button event={segundoEvento} text="Segundo Evento"/>
         </div>
-      )}
-    </div>
-  );
+    )
 }
-
-export default Evento;
+export default Evento
